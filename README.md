@@ -1,7 +1,3 @@
-Certainly! Below is a template for the README file for your API. Feel free to customize it based on the specifics of your project:
-
----
-
 # P7 Credit Scoring API with Flask
 
 ## Project Overview
