@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import shap
-import os
 
 from io import BytesIO
 #import matplotlib.pyplot as plt
@@ -60,6 +59,4 @@ def predict():
     return jsonify(combined_data)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
     app.run(debug=True)
