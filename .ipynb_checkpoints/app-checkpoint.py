@@ -2,16 +2,18 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import shap
+import os
 
 from io import BytesIO
-#import matplotlib.pyplot as plt
 from flask import Flask, send_from_directory
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home():
-    return 'Hello, this is the home page!'
+    return 'Hello, this is my Dashboard home page!'
 
 MODEL_PATH = 'loan_model.pkl'
 DATA_PATH = 'client_data.csv'
@@ -59,4 +61,5 @@ def predict():
     return jsonify(combined_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
